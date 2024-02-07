@@ -1,18 +1,20 @@
-class File():
+# NO NEED TO CHANGE ANYTHING IN THIS FILE
+
+
+class File:
     def __init__(self):
-        self.dev_file = "dev_credentials.txt"
-        self.file = "credentials.txt"
-        self.final = None
-        try :
-            with open(self.dev_file, 'r') as file:
-                self.final = self.dev_file
+        self.file_names = ["dev_credentials.txt", "credentials.txt"]
+        self.selected_file = None
         
+        try:
+            with open(self.file_names[0], 'r') as file:
+                self.selected_file = self.file_names[0]
         except FileNotFoundError:
-            with open(self.file, 'r') as file:
-                self.final = self.file
+            with open(self.file_names[1], 'r') as file:
+                self.selected_file = self.file_names[1]
 
     def fetch_data(self):
-        with open(self.final, 'r') as file:
+        with open(self.selected_file, 'r') as file:
             for line in file:
                 variable, value = line.strip().split(' = ')
                 value = value.strip('"')
