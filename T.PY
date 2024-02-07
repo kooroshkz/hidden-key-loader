@@ -1,3 +1,4 @@
-from credentials import Password
+from credentials import Username, Password
 
 print(Password)
+print(Username)
